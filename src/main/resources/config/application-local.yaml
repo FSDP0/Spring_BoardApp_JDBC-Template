@@ -1,2 +1,16 @@
+### Tomcat server listening port
 server:
     port: 8000
+
+### Spring boot logging level
+# logging:
+#     level:
+#         org:
+#             springframework: DEBUG
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3307
+        username: root
+        password: 123456
