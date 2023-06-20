@@ -1,0 +1,12 @@
+spring:
+    devtools:
+        livereload:
+            enabled: false
+    # Spring Boot default profile active : local
+    profiles:
+        active: local
+    # Spring Boot output log colorize
+    output:
+        ansi:
+            enabled: always
+        
