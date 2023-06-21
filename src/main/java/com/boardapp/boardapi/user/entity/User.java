@@ -6,6 +6,7 @@ import lombok.Getter;
 
 @Getter
 public class User {
+    private Long userIndex;
     private String userId;
     private String userName;
     private String userPassword;
@@ -16,8 +17,9 @@ public class User {
     private Date modifiedDate;
 
     @Builder
-    public User(String id, String name, String password, String phoneNumber, String address,
-            String zipCode, Date createdDate, Date modifiedDate) {
+    public User(Long index, String id, String name, String password, String phoneNumber,
+            String address, String zipCode, Date createdDate, Date modifiedDate) {
+        this.userIndex = index;
         this.userId = id;
         this.userName = name;
         this.userPassword = password;

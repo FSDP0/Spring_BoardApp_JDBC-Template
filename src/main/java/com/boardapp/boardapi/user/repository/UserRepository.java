@@ -6,7 +6,7 @@ import com.boardapp.boardapi.user.entity.User;
 public interface UserRepository {
     List<User> findAllUsers();
 
-    void findUserById(String id);
+    User findUserById(String id);
 
     int saveUser(User user);
 
