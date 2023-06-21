@@ -11,16 +11,16 @@ INSERT INTO users.user(user_id, user_name, user_password, user_tel, created_date
 INSERT INTO users.user(user_id, user_name, user_password, user_tel, created_date) VALUES ("Tester 10", "Sopia", "123456", "010-3602-2340", "2023-06-20 09:49:10");
 
 -- Sample User Zipcode
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 1", "150, Jamwon-ro, Seocho-gu, Seoul, Republic of Korea", "06518");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 2", "20, Jamwon-ro 8-gil, Seocho-gu, Seoul, Republic of Korea", "06519");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 3", "310-6, Banpo-daero, Seocho-gu, Seoul, Republic of Korea", "06509");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 4", "23, Seorae-ro, Seocho-gu, Seoul, Republic of Korea", "06576");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 5", "212, Seoun-ro, Seocho-gu, Seoul, Republic of Korea", "06610");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 6", "29, Bangbae-ro 33-gil, Seocho-gu, Seoul, Republic of Korea", "06562");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 7", "10, Seocho-daero 71-gil, Seocho-gu, Seoul, Republic of Korea", "06616");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 8", "103-13, Bangbae-ro 32-gil, Seocho-gu, Seoul, Republic of Korea", "06587");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 9", "104, Seoun-ro, Seocho-gu, Seoul, Republic of Korea", "06625");
-INSERT INTO users.user_address(user_id, user_address, address_zipcode) VALUES ("Tester 10", "220, Seochojungang-ro, Seocho-gu, Seoul, Republic of Korea", "06599");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 1", "150, Jamwon-ro, Seocho-gu, Seoul, Republic of Korea", "06518");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 2", "20, Jamwon-ro 8-gil, Seocho-gu, Seoul, Republic of Korea", "06519");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 3", "310-6, Banpo-daero, Seocho-gu, Seoul, Republic of Korea", "06509");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 4", "23, Seorae-ro, Seocho-gu, Seoul, Republic of Korea", "06576");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 5", "212, Seoun-ro, Seocho-gu, Seoul, Republic of Korea", "06610");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 6", "29, Bangbae-ro 33-gil, Seocho-gu, Seoul, Republic of Korea", "06562");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 7", "10, Seocho-daero 71-gil, Seocho-gu, Seoul, Republic of Korea", "06616");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 8", "103-13, Bangbae-ro 32-gil, Seocho-gu, Seoul, Republic of Korea", "06587");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 9", "104, Seoun-ro, Seocho-gu, Seoul, Republic of Korea", "06625");
+INSERT INTO users.address(user_id, user_address, address_zipcode) VALUES ("Tester 10", "220, Seochojungang-ro, Seocho-gu, Seoul, Republic of Korea", "06599");
 
 -- Sample Board Data
 INSERT INTO boards.board(board_title, user_id, board_content, created_date) VALUES ("Test Title 1.0", "Tester 1", "Test Content 1", "2023-06-20 09:47:01");

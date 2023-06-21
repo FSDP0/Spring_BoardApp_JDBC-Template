@@ -4,14 +4,14 @@ CREATE DATABASE IF NOT EXISTS boards;
 CREATE DATABASE IF NOT EXISTS users;
 
 -- MariaDB ALTER TABLE Query
--- ALTER TABLE IF EXISTS users.user_address DROP CONSTRAINT address_fk_id;
--- ALTER TABLE IF EXISTS boards.board DROP CONSTRAINT board_fk_id;
+ALTER TABLE IF EXISTS users.address DROP CONSTRAINT address_fk_id;
+ALTER TABLE IF EXISTS boards.board DROP CONSTRAINT board_fk_id;
 
 -- MySQL ALTER TABLE Query
-ALTER TABLE users.user_address DROP CONSTRAINT address_fk_id;
-ALTER TABLE boards.board DROP CONSTRAINT board_fk_id;
+-- ALTER TABLE users.address DROP CONSTRAINT address_fk_id;
+-- ALTER TABLE boards.board DROP CONSTRAINT board_fk_id;
 
-DROP TABLE IF EXISTS users.user_address;
+DROP TABLE IF EXISTS users.address;
 DROP TABLE IF EXISTS boards.board;
 DROP TABLE IF EXISTS users.user;
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS boards.board (
 
 
 -- Create user address tables on users database
-CREATE TABLE IF NOT EXISTS users.user_address (
+CREATE TABLE IF NOT EXISTS users.address (
     user_id VARCHAR(50) NOT NULL,
     user_address VARCHAR(100) NOT NULL,
     address_zipcode VARCHAR(30) NOT NULL,
