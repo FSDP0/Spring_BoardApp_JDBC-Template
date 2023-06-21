@@ -2,7 +2,6 @@ package com.boardapp.boardapi.user.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
 import org.springframework.stereotype.Service;
 import com.boardapp.boardapi.user.entity.User;
 import com.boardapp.boardapi.user.model.UserDto;
@@ -58,11 +57,11 @@ public class UserService {
         return this.jdbcUserRepository.saveUser(userDto.toEntity());
     }
 
-    public void modifyUser(String userId, UserDto userDto) {
-
+    public int modifyUser(String userId, UserDto userDto) {
+        return this.jdbcUserRepository.editUser(userId, userDto.toEntity());
     }
 
-    public void deleteUser(String userId) {
-
+    public int deleteUser(String userId) {
+        return this.jdbcUserRepository.deleteUser(userId);
     }
 }

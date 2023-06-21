@@ -45,33 +45,51 @@ public class JdbcUserRepository implements UserRepository {
         userSql += ") VALUES (?, ?, ?, ?, ?)";
 
         String addressSql = "INSERT INTO users.address(";
-        addressSql += "user_id, user_address, user_zipcode";
+        addressSql += "user_id, user_address, address_zipcode";
         addressSql += ") VALUES (?, ?, ?)";
 
-        int setFlag = 0;
+        int effectFlag = 0;
 
-        setFlag = this.jdbcTemplate.update(userSql, user.getUserId(), user.getUserName(),
+        effectFlag = this.jdbcTemplate.update(userSql, user.getUserId(), user.getUserName(),
                 user.getUserPassword(), user.getUserPhoneNumber(), LocalDateTime.now());
 
-        setFlag = this.jdbcTemplate.update(addressSql, user.getUserId(), user.getUserAddress(),
+        effectFlag = this.jdbcTemplate.update(addressSql, user.getUserId(), user.getUserAddress(),
                 user.getAddressZipCode());
 
-        return setFlag;
+        return effectFlag;
     }
 
     @Override
-    public int editUser(String id, User user) {
-        String sql = "UPDATE users.address A SET ";
-        sql += "A.user_address = ?,";
-        sql += "A.address_zipcode = ? ";
-        sql += "WHERE A.user_id = ?";
+    public int editUser(String userId, User user) {
+        String userSql = "UPDATE users.user SET ";
+        userSql += "user_name = ?,";
+        userSql += "user_password = ?, ";
+        userSql += "user_tel = ?, ";
+        userSql += "modified_date = ? ";
+        userSql += "WHERE user_id = ?";
 
-        return jdbcTemplate.update(sql, user.getUserAddress(), user.getAddressZipCode());
+        String addressSql = "UPDATE users.address SET ";
+        addressSql += "user_address = ?, ";
+        addressSql += "address_zipcode = ? ";
+        addressSql += "WHERE user_id = ?";
+
+        int effectFlag = 0;
+
+        effectFlag = this.jdbcTemplate.update(userSql, user.getUserName(), user.getUserPassword(),
+                user.getUserPhoneNumber(), LocalDateTime.now(), userId);
+
+
+        effectFlag = this.jdbcTemplate.update(addressSql, user.getUserAddress(),
+                user.getAddressZipCode(), userId);
+
+        return effectFlag;
     }
 
     @Override
-    public int deleteUser(String id) {
-        return jdbcTemplate.update("DELETE FROM users.user WHERE user_id = ?", id);
+    public int deleteUser(String userId) {
+        String sql = "DELETE FROM users.user WHERE user_id = ?";
+
+        return this.jdbcTemplate.update(sql, userId);
     }
 
     private final RowMapper<User> userRowMapper = (resultSet, rowNum) -> {
