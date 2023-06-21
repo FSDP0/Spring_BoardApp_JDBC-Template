@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.boardapp.boardapi.board.entity.Board;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class JdbcBoardRepository implements BoardRepository {
     private final JdbcTemplate jdbcTemplate;
 
