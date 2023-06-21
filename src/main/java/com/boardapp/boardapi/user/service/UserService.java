@@ -5,17 +5,18 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.boardapp.boardapi.user.entity.User;
 import com.boardapp.boardapi.user.model.UserDto;
-import com.boardapp.boardapi.user.repository.JdbcUserRepository;
+// import com.boardapp.boardapi.user.repository.JdbcUserRepository;
 import com.boardapp.boardapi.user.repository.NamedJdbcUserRepository;
 
 @Service
 public class UserService {
-    private final JdbcUserRepository jdbcUserRepository;
+    // private final JdbcUserRepository jdbcUserRepository;
     private final NamedJdbcUserRepository namedJdbcUserRepository;
 
-    public UserService(JdbcUserRepository jdbcUserRepository,
+    public UserService(
+            // JdbcUserRepository jdbcUserRepository,
             NamedJdbcUserRepository namedJdbcUserRepository) {
-        this.jdbcUserRepository = jdbcUserRepository;
+        // this.jdbcUserRepository = jdbcUserRepository;
         this.namedJdbcUserRepository = namedJdbcUserRepository;
     }
 
