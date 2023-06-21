@@ -2,6 +2,7 @@ package com.boardapp.boardapi.user.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,8 @@ import com.boardapp.boardapi.user.entity.User;
 public class JdbcUserRepository implements UserRepository {
 
     private final JdbcTemplate jdbcTemplate;
+
+    private final RowMapper<User> userRowMapper = BeanPropertyRowMapper.newInstance(User.class);
 
     public JdbcUserRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -50,10 +53,10 @@ public class JdbcUserRepository implements UserRepository {
         int effectFlag = 0;
 
         effectFlag = this.jdbcTemplate.update(userSql, user.getUserId(), user.getUserName(),
-                user.getUserPassword(), user.getUserPhoneNumber(), LocalDateTime.now());
+                user.getUserPassword(), user.getUserTel(), LocalDateTime.now());
 
         effectFlag = this.jdbcTemplate.update(addressSql, user.getUserId(), user.getUserAddress(),
-                user.getAddressZipCode());
+                user.getAddressZipcode());
 
         return effectFlag;
     }
@@ -75,11 +78,11 @@ public class JdbcUserRepository implements UserRepository {
         int effectFlag = 0;
 
         effectFlag = this.jdbcTemplate.update(userSql, user.getUserName(), user.getUserPassword(),
-                user.getUserPhoneNumber(), LocalDateTime.now(), userId);
+                user.getUserTel(), LocalDateTime.now(), userId);
 
 
         effectFlag = this.jdbcTemplate.update(addressSql, user.getUserAddress(),
-                user.getAddressZipCode(), userId);
+                user.getAddressZipcode(), userId);
 
         return effectFlag;
     }
@@ -91,16 +94,17 @@ public class JdbcUserRepository implements UserRepository {
         return this.jdbcTemplate.update(sql, userId);
     }
 
-    private final RowMapper<User> userRowMapper = (resultSet, rowNum) -> {
-        User user = User.builder().index(resultSet.getLong("id")).id(resultSet.getString("user_id"))
-                .name(resultSet.getString("user_name"))
-                .password(resultSet.getString("user_password"))
-                .phoneNumber(resultSet.getString("user_tel"))
-                .createdDate(resultSet.getTimestamp("created_date"))
-                .modifiedDate(resultSet.getTimestamp("modified_date"))
-                .address(resultSet.getString("user_address"))
-                .zipCode(resultSet.getString("address_zipcode")).build();
+    // Create RowMapper with @Builder
+    // private final RowMapper<User> userRowMapper = (resultSet, rowNum) -> {
+    // User user = User.builder().index(resultSet.getLong("id")).id(resultSet.getString("user_id"))
+    // .name(resultSet.getString("user_name"))
+    // .password(resultSet.getString("user_password"))
+    // .phoneNumber(resultSet.getString("user_tel"))
+    // .createdDate(resultSet.getTimestamp("created_date"))
+    // .modifiedDate(resultSet.getTimestamp("modified_date"))
+    // .address(resultSet.getString("user_address"))
+    // .zipCode(resultSet.getString("address_zipcode")).build();
 
-        return user;
-    };
+    // return user;
+    // };
 }
