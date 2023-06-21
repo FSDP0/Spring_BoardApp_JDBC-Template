@@ -16,7 +16,6 @@ public class JdbcUserRepository implements UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-
     @Override
     public List<User> findAllUsers() {
         String sql = "SELECT A.*, B.user_address, B.address_zipcode ";
