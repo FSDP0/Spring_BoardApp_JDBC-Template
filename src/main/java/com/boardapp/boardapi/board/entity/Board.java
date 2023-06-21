@@ -20,6 +20,7 @@ public class Board {
             Date modifiedDate) {
         this.boardId = id;
         this.boardTitle = title;
+        this.boardContent = content;
         this.boardAuthor = author;
         this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;

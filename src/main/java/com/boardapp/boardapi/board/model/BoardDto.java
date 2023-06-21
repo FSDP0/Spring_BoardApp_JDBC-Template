@@ -13,7 +13,7 @@ public class BoardDto {
     private String writeName;
     private String contents;
 
-    private Date wirteDate;
+    private Date writeDate;
     private Date modifyDate;
 
     public Board toEntity() {
@@ -30,7 +30,7 @@ public class BoardDto {
         this.title = title;
         this.writeName = writeName;
         this.contents = contents;
-        this.wirteDate = writeDate;
+        this.writeDate = writeDate;
         this.modifyDate = modifyDate;
     }
 }

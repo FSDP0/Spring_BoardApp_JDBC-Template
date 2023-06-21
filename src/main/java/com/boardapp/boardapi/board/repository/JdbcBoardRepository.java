@@ -19,7 +19,9 @@ public class JdbcBoardRepository implements BoardRepository {
     public List<Board> findAllBoard() {
         String sql = "SELECT * FROM boards.board";
 
-        return this.jdbcTemplate.query(sql, boardRowMapper);
+        List<Board> sample = this.jdbcTemplate.query(sql, boardRowMapper);
+
+        return sample;
     }
 
     @Override
@@ -47,7 +49,7 @@ public class JdbcBoardRepository implements BoardRepository {
     public int editBoard(Long id, Board board) {
         String sql = "UPDATE boards.board SET ";
         sql += "board_title = ?, ";
-        sql += "board_content = ?";
+        sql += "board_content = ?, ";
         sql += "modified_date = ? ";
         sql += "WHERE board_id = ?";
 
@@ -60,10 +62,10 @@ public class JdbcBoardRepository implements BoardRepository {
     }
 
     @Override
-    public int deleteBoard(Long boardId) {
-        String sql = "DELETE FROM users.user WHERE user_id = ?";
+    public int deleteBoard(Long id) {
+        String sql = "DELETE FROM boards.board WHERE board_id = ?";
 
-        return this.jdbcTemplate.update(sql, boardId);
+        return this.jdbcTemplate.update(sql, id);
     }
 
     private final RowMapper<Board> boardRowMapper = (resultSet, rowNum) -> {
